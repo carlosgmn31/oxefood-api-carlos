@@ -10,3 +10,4 @@ services:
       - 5436:5432
     volumes:
       - ./postgres-data:/bitnami/postgresql/data
+  #docker-compose up -d

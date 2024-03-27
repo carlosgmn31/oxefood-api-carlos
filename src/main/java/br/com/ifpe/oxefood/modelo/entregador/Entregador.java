@@ -5,6 +5,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
+
+import java.time.LocalDate;
+
 import org.hibernate.annotations.SQLRestriction;
 
 @Entity
@@ -16,6 +19,20 @@ import org.hibernate.annotations.SQLRestriction;
 @NoArgsConstructor
 public class Entregador extends EntidadeAuditavel {
 
+    @Column
+    private String nome;
+    @Column
+    private String cpf;
+    @Column
+    private String rg;
+    @Column
+    private LocalDate dataNascimento;
+    @Column
+    private String foneCelular;
+    @Column
+    private String foneFixo;
+    @Column
+    private Integer qtdEntregasRealizadas;
     @Column
     private Double valorFrete;
     @Column

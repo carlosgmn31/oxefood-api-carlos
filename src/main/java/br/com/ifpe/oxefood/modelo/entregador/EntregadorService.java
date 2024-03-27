@@ -32,4 +32,23 @@ public class EntregadorService {
 
     return repository.findById(id).get();
     }
+    @Transactional
+    public void update(long id, Entregador entregadorAlterado){
+
+        Entregador entregador = repository.findById(id).get();
+        entregador.setNome(entregadorAlterado.getNome());
+        entregador.setDataNascimento(entregadorAlterado.getDataNascimento());
+        entregador.setCpf(entregadorAlterado.getCpf());
+        entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
+        entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
+        entregador.setVersao(entregador.getVersao() + 1);
+        entregador.setNome(entregador.getNome());
+        entregador.setCpf(entregador.getCpf());
+        entregador.setRg(entregador.getRg());
+        entregador.setDataNascimento(entregador.getDataNascimento());
+        entregador.setFoneCelular(entregador.getFoneCelular());
+        entregador.setFoneFixo(entregador.getFoneFixo());
+        entregador.setQtdEntregasRealizadas(entregador.getQtdEntregasRealizadas());
+        repository.save(entregador);
+    }
 }
