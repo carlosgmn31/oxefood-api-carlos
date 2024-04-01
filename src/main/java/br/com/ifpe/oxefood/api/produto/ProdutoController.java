@@ -1,5 +1,6 @@
 package br.com.ifpe.oxefood.api.produto;
 
+
 import br.com.ifpe.oxefood.modelo.produto.Produto;
 import br.com.ifpe.oxefood.modelo.produto.ProdutoService;
 
@@ -16,22 +17,28 @@ import org.springframework.web.bind.annotation.*;
 public class ProdutoController {
 
     @Autowired
-    private ProdutoService service;
+    private ProdutoService produtoService;
 
     @PostMapping
     public ResponseEntity<Produto> save (@RequestBody ProdutoRequest request) {
 
-        Produto produto = service.save(request.build());
+        Produto produto = produtoService.save(request.build());
 
         return new ResponseEntity<Produto>(produto, HttpStatus.CREATED);
     }
     @GetMapping
     public List<Produto> listarTodos() {
-        return service.listarTodos();
+        return produtoService.listarTodos();
     }
 
     @GetMapping("/{id}")
     public Produto obterPorID(@PathVariable Long id) {
-        return service.obterPorID(id);
+        return produtoService.obterPorID(id);
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Produto> update(@PathVariable("id") Long id, @RequestBody ProdutoRequest request) {
+
+    produtoService.update(id, request.build());
+    return ResponseEntity.ok().build();
+ }
 }

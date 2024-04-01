@@ -11,7 +11,8 @@ import org.hibernate.annotations.SQLRestriction;
 @Table(name = "Produto")
 @SQLRestriction("habilitado = true")
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Produto extends EntidadeAuditavel {
