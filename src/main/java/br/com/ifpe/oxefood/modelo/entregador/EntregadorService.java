@@ -37,6 +37,7 @@ public class EntregadorService {
         Entregador entregador = repository.findById(id).get();
         entregador.setNome(entregadorAlterado.getNome());
         entregador.setDataNascimento(entregadorAlterado.getDataNascimento());
+        entregador.setAtivo(entregadorAlterado.getAtivo());
         entregador.setCpf(entregadorAlterado.getCpf());
         entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
         entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
