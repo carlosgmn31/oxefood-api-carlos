@@ -37,19 +37,19 @@ public class Entregador extends EntidadeAuditavel {
     @Column
     private Double valorFrete;
     @Column
-    private String enderecoRua;
+    private String Rua;
     @Column
-    private String endercoNumero;
+    private String NumeroRua;
     @Column
-    private String enderecoBairro;
+    private String Bairro;
     @Column
-    private String enderecoCidade;
+    private String Cidade;
     @Column
-    private String enderecoCep;
+    private String Cep;
     @Column
-    private String enderecoUf;
+    private String Uf;
     @Column
-    private String enderecoComplemento;
+    private String Complemento;
     @Column
     private Boolean ativo;
 

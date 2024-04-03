@@ -2,6 +2,8 @@ package br.com.ifpe.oxefood.api.entregador;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.modelo.entregador.Entregador;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,17 +17,18 @@ import lombok.NoArgsConstructor;
 public class EntregadorRequest {
 
     private Double valorFrete;
-    private String enderecoRua;
-    private String endercoNumero;
-    private String enderecoBairro;
-    private String enderecoCidade;
-    private String enderecoCep;
-    private String enderecoUf;
-    private String enderecoComplemento;
+    private String Rua;
+    private String NumeroRua;
+    private String Bairro;
+    private String Cidade;
+    private String Cep;
+    private String Uf;
+    private String Complemento;
     private Boolean ativo;
     private String nome;
     private String cpf;
     private String rg;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
     private String foneCelular;
     private String foneFixo;
@@ -35,10 +38,10 @@ public class EntregadorRequest {
 
        return Entregador.builder()
                 .ativo(ativo)
-                .endercoNumero(endercoNumero)
-                .enderecoCidade(enderecoCidade)
-                .enderecoBairro(enderecoBairro)
-                .enderecoCep(enderecoCep)
+                .NumeroRua(NumeroRua)
+                .Cidade(Cidade)
+                .Bairro(Bairro)
+                .Cep(Cep)
                 .nome(nome)
                 .cpf(cpf)
                 .rg(rg)
@@ -46,10 +49,11 @@ public class EntregadorRequest {
                 .foneCelular(foneCelular)
                 .foneFixo(foneFixo)
                 .foneFixo(foneFixo)
-                .enderecoRua(enderecoRua)
-                .enderecoComplemento(enderecoComplemento)
-                .enderecoUf(enderecoUf)
+                .Rua(Rua)
+                .Complemento(Complemento)
+                .Uf(Uf)
                 .valorFrete(valorFrete)
+                .qtdEntregasRealizadas(qtdEntregasRealizadas)
                 .build();
     }
 }

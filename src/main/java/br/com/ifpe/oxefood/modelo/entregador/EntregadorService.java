@@ -42,13 +42,13 @@ public class EntregadorService {
         entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
         entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
         entregador.setVersao(entregador.getVersao() + 1);
-        entregador.setNome(entregador.getNome());
-        entregador.setCpf(entregador.getCpf());
-        entregador.setRg(entregador.getRg());
-        entregador.setDataNascimento(entregador.getDataNascimento());
-        entregador.setFoneCelular(entregador.getFoneCelular());
-        entregador.setFoneFixo(entregador.getFoneFixo());
-        entregador.setQtdEntregasRealizadas(entregador.getQtdEntregasRealizadas());
+        entregador.setNome(entregadorAlterado.getNome());
+        entregador.setCpf(entregadorAlterado.getCpf());
+        entregador.setRg(entregadorAlterado.getRg());
+        entregador.setDataNascimento(entregadorAlterado.getDataNascimento());
+        entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
+        entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
+        entregador.setQtdEntregasRealizadas(entregadorAlterado.getQtdEntregasRealizadas());
         repository.save(entregador);
     }
 }
