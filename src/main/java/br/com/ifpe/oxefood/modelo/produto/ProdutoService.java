@@ -3,7 +3,6 @@ package br.com.ifpe.oxefood.modelo.produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import jakarta.transaction.Transactional;
 
 import java.time.LocalDate;
@@ -43,4 +42,14 @@ public class ProdutoService {
         produto.setTempoEntregaMaximo(produtoAlterado.getTempoEntregaMaximo());
         produtoRepository.save(produto);
     }
+    @Transactional
+    public void delete(Long id) {
+
+       Produto produto = produtoRepository.findById(id).get();
+       produto.setHabilitado(Boolean.FALSE);
+       produto.setVersao(produto.getVersao() + 1);
+
+       produtoRepository.save(produto);
+   }
+
 }

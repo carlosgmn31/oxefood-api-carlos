@@ -40,6 +40,13 @@ public class EntregadorController {
 
     entregadorService.update(id, request.build());
     return ResponseEntity.ok().build();
- }
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+
+        entregadorService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
 
 }
