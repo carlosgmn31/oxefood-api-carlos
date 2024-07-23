@@ -1,5 +1,6 @@
 package br.com.ifpe.oxefood.modelo.cliente;
 
+import br.com.ifpe.oxefood.modelo.categoria_produto.CategoriaProduto;
 import jakarta.transaction.Transactional;
 
 import java.time.LocalDate;

@@ -33,19 +33,19 @@ public class CategoriaProdutoController {
     }
 
     @GetMapping("/{id}")
-    public CategoriaProduto obterPorID(@PathVariable Integer id) {
+    public CategoriaProduto obterPorID(@PathVariable Long id) {
         return categoriaProdutoService.obterPorID(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Integer id, @RequestBody @Valid CategoriaProdutoRequest request) {
+    public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody @Valid CategoriaProdutoRequest request) {
 
         categoriaProdutoService.update(id, request.build());
         return new ResponseEntity<CategoriaProduto>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CategoriaProduto> delete(@PathVariable Integer id) {
+    public ResponseEntity<CategoriaProduto> delete(@PathVariable Long id) {
 
         categoriaProdutoService.delete(id);
         return new ResponseEntity<CategoriaProduto>(HttpStatus.OK);
