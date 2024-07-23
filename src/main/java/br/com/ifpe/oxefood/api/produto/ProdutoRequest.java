@@ -19,6 +19,7 @@ public class ProdutoRequest {
     private Double valorUnitario;
     private Integer tempoEntregaMinimo;
     private Integer tempoEntregaMaximo;
+    private Long idCategoria;
 
     public Produto build() {
 
