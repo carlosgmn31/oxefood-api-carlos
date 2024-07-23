@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.Operation;
 @RequestMapping("/api/cliente")
 @CrossOrigin
 public class ClienteController {
-
+    /* http://localhost:8080/swagger-ui/index.html */
    @Autowired
    private ClienteService clienteService;
    @Operation(
