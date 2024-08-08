@@ -21,9 +21,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente extends EntidadeAuditavel  {
+public class Cliente extends EntidadeAuditavel {
 
-    @OneToMany(mappedBy = "cliente",orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cliente", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<EnderecoCliente> enderecos;
 
     @Column
@@ -41,4 +41,6 @@ public class Cliente extends EntidadeAuditavel  {
     @Column
     private String foneFixo;
 
+    @Column
+    private String email;
 }
