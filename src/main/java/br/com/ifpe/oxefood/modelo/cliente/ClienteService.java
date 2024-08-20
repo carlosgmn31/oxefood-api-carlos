@@ -4,6 +4,7 @@ import br.com.ifpe.oxefood.modelo.categoria_produto.CategoriaProduto;
 import br.com.ifpe.oxefood.modelo.endereco.EnderecoCliente;
 import br.com.ifpe.oxefood.modelo.endereco.EnderecoClienteRepository;
 import br.com.ifpe.oxefood.modelo.mensagens.EmailService;
+import br.com.ifpe.oxefood.modelo.produto.Produto;
 import jakarta.transaction.Transactional;
 
 import java.time.LocalDate;
@@ -128,4 +129,24 @@ public class ClienteService {
         repository.save(cliente);
     }
 
+    public List<Cliente> filtrar(String cpf, String nome) {
+        List<Cliente> listaClientes;
+    
+        if ((cpf != null && !"".equals(cpf)) &&
+            (nome == null || "".equals(nome))) {
+                listaClientes = repository.findByCpfLike(cpf);
+        } else if (
+            (cpf == null || "".equals(cpf)) &&
+            (nome != null && !"".equals(nome))) {    
+                listaClientes = repository.findByNomeContainingIgnoreCaseOrderByNomeAsc(nome);
+        } else if (
+            (cpf != null && !"".equals(cpf)) &&
+            (nome != null && !"".equals(nome))) {
+                listaClientes = repository.findByCpfLikeAndNomeContainingIgnoreCaseOrderByNomeAsc(cpf, nome); 
+        } else {
+            listaClientes = new ArrayList<>();
+        }
+    
+        return listaClientes;
+    }
 }
