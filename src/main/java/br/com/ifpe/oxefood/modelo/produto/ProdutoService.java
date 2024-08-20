@@ -54,4 +54,32 @@ public class ProdutoService {
        produtoRepository.save(produto);
    }
 
+   public List<Produto> filtrar(String codigo, String titulo, Long idCategoria) {
+
+    List<Produto> listaProdutos = produtoRepository.findAll();
+
+    if ((codigo != null && !"".equals(codigo)) &&
+        (titulo == null || "".equals(titulo)) &&
+        (idCategoria == null)) {
+            listaProdutos = produtoRepository.consultarPorCodigo(codigo);
+    } else if (
+        (codigo == null || "".equals(codigo)) &&
+        (titulo != null && !"".equals(titulo)) &&
+        (idCategoria == null)) {    
+            listaProdutos = produtoRepository.findByTituloContainingIgnoreCaseOrderByTituloAsc(titulo);
+    } else if (
+        (codigo == null || "".equals(codigo)) &&
+        (titulo == null || "".equals(titulo)) &&
+        (idCategoria != null)) {
+            listaProdutos = produtoRepository.consultarPorCategoria(idCategoria); 
+    } else if (
+        (codigo == null || "".equals(codigo)) &&
+        (titulo != null && !"".equals(titulo)) &&
+        (idCategoria != null)) {
+            listaProdutos = produtoRepository.consultarPorTituloECategoria(titulo, idCategoria); 
+    }
+
+    return listaProdutos;
+}
+
 }
